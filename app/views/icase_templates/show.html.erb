@@ -1,0 +1,84 @@
+<h1>
+  Icase #<%= @icase.id %> details
+</h1>
+
+<a href="/icases/<%= @icase.id %>/edit">
+  Edit icase
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @icase.user_id %>
+  </dd>
+
+  <dt>
+    Question
+  </dt>
+  <dd>
+    <%= @icase.question %>
+  </dd>
+
+  <dt>
+    Company
+  </dt>
+  <dd>
+    <%= @icase.company_id %>
+  </dd>
+
+  <dt>
+    Role
+  </dt>
+  <dd>
+    <%= @icase.role %>
+  </dd>
+
+  <dt>
+    Club
+  </dt>
+  <dd>
+    <%= @icase.club_id %>
+  </dd>
+
+  <dt>
+    Approach
+  </dt>
+  <dd>
+    <%= @icase.approach %>
+  </dd>
+
+  <dt>
+    Element
+  </dt>
+  <dd>
+    <%= @icase.element %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@icase.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@icase.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_icase/<%= @icase.id %>">
+  Delete icase
+</a>
+
+<hr>
+
+<a href="/icases">
+  Go back
+</a>

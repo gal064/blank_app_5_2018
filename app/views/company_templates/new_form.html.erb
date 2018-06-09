@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @company.present? %>
+  <% if @company.errors.any? %>
+    <% @company.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new company
+</h1>
+
+<hr>
+
+<form action="/create_company" method="post">
+  <!-- Label and input for name -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @company.try(:name) %>">
+  </div>
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @company.try(:user_id) %>">
+  </div>
+
+  <!-- Label and input for logo -->
+  <div class="form-group">
+    <label for="logo">
+      Logo
+    </label>
+
+    <input type="text" id="logo" name="logo" class="form-control" value="<%= @company.try(:logo) %>">
+  </div>
+
+  <!-- Label and input for club_id -->
+  <div class="form-group">
+    <label for="club_id">
+      Club
+    </label>
+
+    <input type="text" id="club_id" name="club_id" class="form-control" value="<%= @company.try(:club_id) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create company
+  </button>
+</form>
+
+<hr>
+
+<a href="/companies">
+  Go back
+</a>

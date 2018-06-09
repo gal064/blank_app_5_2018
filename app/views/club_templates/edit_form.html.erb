@@ -1,0 +1,44 @@
+<!-- Validation failure messages -->
+<% if @club.errors.any? %>
+  <% @club.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit club #<%= @club.id %>
+</h1>
+
+<hr>
+
+<form action="/update_club/<%= @club.id %>" method="post">
+  <!-- Label and input for name -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @club.name %>">
+  </div>
+
+  <!-- Label and input for logo -->
+  <div class="form-group">
+    <label for="logo">
+      Logo
+    </label>
+
+    <input type="text" id="logo" name="logo" class="form-control" value="<%= @club.logo %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update club
+  </button>
+</form>
+
+<hr>
+
+<a href="/clubs">
+  Go back
+</a>

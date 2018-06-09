@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @icomment.present? %>
+  <% if @icomment.errors.any? %>
+    <% @icomment.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new icomment
+</h1>
+
+<hr>
+
+<form action="/create_icomment" method="post">
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @icomment.try(:user_id) %>">
+  </div>
+
+  <!-- Label and input for content -->
+  <div class="form-group">
+    <label for="content">
+      Content
+    </label>
+
+    <input type="text" id="content" name="content" class="form-control" value="<%= @icomment.try(:content) %>">
+  </div>
+
+  <!-- Label and input for icase_id -->
+  <div class="form-group">
+    <label for="icase_id">
+      Icase
+    </label>
+
+    <input type="text" id="icase_id" name="icase_id" class="form-control" value="<%= @icomment.try(:icase_id) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create icomment
+  </button>
+</form>
+
+<hr>
+
+<a href="/icomments">
+  Go back
+</a>

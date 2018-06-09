@@ -1,0 +1,89 @@
+<!-- Validation failure messages -->
+<% if @icase.errors.any? %>
+  <% @icase.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit icase #<%= @icase.id %>
+</h1>
+
+<hr>
+
+<form action="/update_icase/<%= @icase.id %>" method="post">
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @icase.user_id %>">
+  </div>
+
+  <!-- Label and input for question -->
+  <div class="form-group">
+    <label for="question">
+      Question
+    </label>
+
+    <input type="text" id="question" name="question" class="form-control" value="<%= @icase.question %>">
+  </div>
+
+  <!-- Label and input for company_id -->
+  <div class="form-group">
+    <label for="company_id">
+      Company
+    </label>
+
+    <input type="text" id="company_id" name="company_id" class="form-control" value="<%= @icase.company_id %>">
+  </div>
+
+  <!-- Label and input for role -->
+  <div class="form-group">
+    <label for="role">
+      Role
+    </label>
+
+    <input type="text" id="role" name="role" class="form-control" value="<%= @icase.role %>">
+  </div>
+
+  <!-- Label and input for club_id -->
+  <div class="form-group">
+    <label for="club_id">
+      Club
+    </label>
+
+    <input type="text" id="club_id" name="club_id" class="form-control" value="<%= @icase.club_id %>">
+  </div>
+
+  <!-- Label and input for approach -->
+  <div class="form-group">
+    <label for="approach">
+      Approach
+    </label>
+
+    <input type="text" id="approach" name="approach" class="form-control" value="<%= @icase.approach %>">
+  </div>
+
+  <!-- Label and input for element -->
+  <div class="form-group">
+    <label for="element">
+      Element
+    </label>
+
+    <input type="text" id="element" name="element" class="form-control" value="<%= @icase.element %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update icase
+  </button>
+</form>
+
+<hr>
+
+<a href="/icases">
+  Go back
+</a>

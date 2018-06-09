@@ -1,0 +1,56 @@
+<h1>
+  Icomment #<%= @icomment.id %> details
+</h1>
+
+<a href="/icomments/<%= @icomment.id %>/edit">
+  Edit icomment
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @icomment.user_id %>
+  </dd>
+
+  <dt>
+    Content
+  </dt>
+  <dd>
+    <%= @icomment.content %>
+  </dd>
+
+  <dt>
+    Icase
+  </dt>
+  <dd>
+    <%= @icomment.icase_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@icomment.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@icomment.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_icomment/<%= @icomment.id %>">
+  Delete icomment
+</a>
+
+<hr>
+
+<a href="/icomments">
+  Go back
+</a>

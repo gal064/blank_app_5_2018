@@ -1,0 +1,74 @@
+<h1>
+  All icomments
+</h1>
+
+<a href="/icomments/new">
+  Add a new icomment
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      User
+    </th>
+
+    <th>
+      Content
+    </th>
+
+    <th>
+      Icase
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @icomments.each do |icomment| %>
+  <tr>
+    <td>
+      <%= icomment.id %>
+    </td>
+
+    <td>
+      <%= icomment.user_id %>
+    </td>
+
+    <td>
+      <%= icomment.content %>
+    </td>
+
+    <td>
+      <%= icomment.icase_id %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(icomment.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(icomment.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/icomments/<%= icomment.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

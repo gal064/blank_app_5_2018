@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @icase.present? %>
+  <% if @icase.errors.any? %>
+    <% @icase.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new icase
+</h1>
+
+<hr>
+
+<form action="/create_icase" method="post">
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @icase.try(:user_id) %>">
+  </div>
+
+  <!-- Label and input for question -->
+  <div class="form-group">
+    <label for="question">
+      Question
+    </label>
+
+    <input type="text" id="question" name="question" class="form-control" value="<%= @icase.try(:question) %>">
+  </div>
+
+  <!-- Label and input for company_id -->
+  <div class="form-group">
+    <label for="company_id">
+      Company
+    </label>
+
+    <input type="text" id="company_id" name="company_id" class="form-control" value="<%= @icase.try(:company_id) %>">
+  </div>
+
+  <!-- Label and input for role -->
+  <div class="form-group">
+    <label for="role">
+      Role
+    </label>
+
+    <input type="text" id="role" name="role" class="form-control" value="<%= @icase.try(:role) %>">
+  </div>
+
+  <!-- Label and input for club_id -->
+  <div class="form-group">
+    <label for="club_id">
+      Club
+    </label>
+
+    <input type="text" id="club_id" name="club_id" class="form-control" value="<%= @icase.try(:club_id) %>">
+  </div>
+
+  <!-- Label and input for approach -->
+  <div class="form-group">
+    <label for="approach">
+      Approach
+    </label>
+
+    <input type="text" id="approach" name="approach" class="form-control" value="<%= @icase.try(:approach) %>">
+  </div>
+
+  <!-- Label and input for element -->
+  <div class="form-group">
+    <label for="element">
+      Element
+    </label>
+
+    <input type="text" id="element" name="element" class="form-control" value="<%= @icase.try(:element) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create icase
+  </button>
+</form>
+
+<hr>
+
+<a href="/icases">
+  Go back
+</a>

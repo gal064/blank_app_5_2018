@@ -1,0 +1,49 @@
+<h1>
+  Club #<%= @club.id %> details
+</h1>
+
+<a href="/clubs/<%= @club.id %>/edit">
+  Edit club
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @club.name %>
+  </dd>
+
+  <dt>
+    Logo
+  </dt>
+  <dd>
+    <%= @club.logo %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@club.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@club.updated_at) %> ago
+  </dd>
+</dl>
+
+<a href="/delete_club/<%= @club.id %>">
+  Delete club
+</a>
+
+<hr>
+
+<a href="/clubs">
+  Go back
+</a>

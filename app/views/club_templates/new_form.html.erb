@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @club.present? %>
+  <% if @club.errors.any? %>
+    <% @club.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new club
+</h1>
+
+<hr>
+
+<form action="/create_club" method="post">
+  <!-- Label and input for name -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @club.try(:name) %>">
+  </div>
+
+  <!-- Label and input for logo -->
+  <div class="form-group">
+    <label for="logo">
+      Logo
+    </label>
+
+    <input type="text" id="logo" name="logo" class="form-control" value="<%= @club.try(:logo) %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create club
+  </button>
+</form>
+
+<hr>
+
+<a href="/clubs">
+  Go back
+</a>
