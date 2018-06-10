@@ -8,20 +8,24 @@
 <% end %>
 
 <h1>
-  Edit icase #<%= @icase.id %>
+  Edit icase #<%= @icase.name %>
 </h1>
 
 <hr>
 
-<form action="/update_icase/<%= @icase.id %>" method="post">
+<form action="/update_icase/<%=params["club_id"]%>/<%=@icase.id%>" method="post">
   <!-- Label and input for user_id -->
-  <div class="form-group">
-    <label for="user_id">
-      User
-    </label>
 
-    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @icase.user_id %>">
+    <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
+
+  <!-- Label and input for approach -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+    <input type="text" id="approach" name="name" class="form-control" value="<%= @icase.try(:name) %>"></textarea>
   </div>
+
 
   <!-- Label and input for question -->
   <div class="form-group">
@@ -29,7 +33,7 @@
       Question
     </label>
 
-    <input type="text" id="question" name="question" class="form-control" value="<%= @icase.question %>">
+    <textarea rows = "10" id="question" name="question" class="form-control"><%= @icase.question %></textarea>
   </div>
 
   <!-- Label and input for company_id -->
@@ -38,7 +42,7 @@
       Company
     </label>
 
-    <input type="text" id="company_id" name="company_id" class="form-control" value="<%= @icase.company_id %>">
+      <%= select_tag("company_id", options_from_collection_for_select(Company.where(:club_id => params["club_id"]), :id, :name, @icase.try(:company_id)), :class => "form-control") %>
   </div>
 
   <!-- Label and input for role -->
@@ -47,17 +51,35 @@
       Role
     </label>
 
-    <input type="text" id="role" name="role" class="form-control" value="<%= @icase.role %>">
+    <select id="role" name="role" class="form-control" value="<%= @icase.try(:role) %>">
+        <option>Product Manager</option>
+        <option>Product Marketing</option>
+        <option>Strategy</option>
+        <option>Operations</option>
+        <option>Finance</option>
+        <option>Associate</option>
+      </select>
   </div>
-
-  <!-- Label and input for club_id -->
+  
+  
+  <!-- Label and input for category -->
   <div class="form-group">
-    <label for="club_id">
-      Club
+    <label for="category">
+      Category(type)
     </label>
 
-    <input type="text" id="club_id" name="club_id" class="form-control" value="<%= @icase.club_id %>">
+    <select id="category" name="category" class="form-control" value="<%= @icase.try(:category) %>">
+        <option>Behavioral</option>
+        <option>Case</option>
+        <option>Coding</option>
+        <option>Other</option>
+      </select>
   </div>
+  
+
+  <!-- Label and input for club_id -->
+    <input type="hidden" id="club_id" name="club_id" class="form-control" value="<%= params["club_id"] %>">
+
 
   <!-- Label and input for approach -->
   <div class="form-group">
@@ -65,20 +87,20 @@
       Approach
     </label>
 
-    <input type="text" id="approach" name="approach" class="form-control" value="<%= @icase.approach %>">
+    <textarea rows="6" type="text" id="approach" name="approach" class="form-control"><%= @icase.approach%></textarea>
   </div>
 
   <!-- Label and input for element -->
   <div class="form-group">
     <label for="element">
-      Element
+      Elements
     </label>
 
-    <input type="text" id="element" name="element" class="form-control" value="<%= @icase.element %>">
+    <textarea rows="6" type="text" id="element" name="element" class="form-control"><%= @icase.element%></textarea>
   </div>
 
   <button class="btn btn-block btn-outline-secondary">
-    Update icase
+    Create Case
   </button>
 </form>
 

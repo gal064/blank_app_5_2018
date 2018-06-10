@@ -10,14 +10,111 @@
 <hr>
 
 
-<%#case = Case.find(1)%>
+<% for icase in Icase.where({:club => params["club_id"]})%>
 
 
-<div class="card">
-  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="jumbotron bg-transparent border" style="border-color:navy !important">
+  
+  <p>
+    <% if !(icase.bookmarked_user_ids.include?(current_user.id)) %>
+      <a href="/create_bookmark/<%=params["club_id"]%>/<%=icase.id%>"><i class="far fa-star float-right fontawe px-3"></i></a>
+    <%else%>
+     <a href="/delete_bookmark/<%=params["club_id"]%>/<%=Bookmark.where({:user_id => current_user.id, :icase_id => icase.id}).ids[0]%>"><i class="fas fa-star float-right fontawe px-3"></i></a>
+     <%end%>
+     <%if icase.user_id == current_user.id%>
+      <a class="btn btn-primary float-right" href="/cases/<%=params["club_id"]%>/<%=icase.id%>/edit" role="button">Edit</a>
+      <%end%>
+      </br>
+  </p>
+
+  <div class="m-3">
+    <h1 style="font-size:40pt; color:navy"><strong><%=icase.name%></strong> <img class="float-right" src="<%=icase.company.logo%>" height="70px"></h2>  
   </div>
+
+<hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="border rounded p-3" style="border-color:navy !important">Category: <strong><%=icase.category%></strong></div>
+      </div>
+      <div class="col-sm-4">
+        <div class="border rounded p-3" style="border-color:navy !important">Firm: <strong><%=icase.company.name%></strong></div>
+      </div>
+      <div class="col-sm-4">
+        <div class="border rounded p-3" style="border-color:navy !important">Role: <strong><%=icase.role%></strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="card">
+      <div class="card-header" style="background-color: navy;">
+        <h5 class="text-white">Question</h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%=icase.question%></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header" style="background-color: navy;">
+              <h5 class="text-white">Recommended Approach</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text" ><%=icase.approach%></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header" style="background-color: navy;">
+              <h5 class="text-white">Key Eelements in the case</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><%=icase.element%></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <hr>
+  <div>
+  
+    <h3>Comments</h3>
+    
+<% for comment in icase.comments%>
+  <p class="sameline"><%=comment.content%></p>
+  <p class="blockquote-footer sameline" style="font-size:12pt;"><%=comment.user.name%></p> </br>
+<%end%>
+
+    
+  <form action="/create_icomment/<%=params["club_id"]%>" method="post" class="mt-3">
+      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id%>">
+      <input type="hidden" id="icase_id" name="icase_id" value="<%= icase.id%>">
+      <div class="row pr-5">
+        <div class="col-sm-11">
+          <input type="text" id="content" name="content" class="form-control">
+        </div>
+        <div class="col-sm-1 mr-0">
+          <button class="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  
+  
+  </div>
+
 </div>
+
+<%end%>
+
+
+
+

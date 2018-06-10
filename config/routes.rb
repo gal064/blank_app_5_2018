@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/bookmarks/new", { :controller => "bookmarks", :action => "new_form" })
   post("/create_bookmark", { :controller => "bookmarks", :action => "create_row" })
+  #create from icase
+  get("/create_bookmark/:club_id/:icase_id/", { :controller => "bookmarks", :action => "create_row" })
 
   # READ
   get("/bookmarks", { :controller => "bookmarks", :action => "index" })
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   post("/update_bookmark/:id_to_modify", { :controller => "bookmarks", :action => "update_row" })
 
   # DELETE
-  get("/delete_bookmark/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row" })
+  get("/delete_bookmark/:club_id/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row" })
 
   #------------------------------
 
@@ -29,8 +31,8 @@ Rails.application.routes.draw do
   post("/create_company", { :controller => "companies", :action => "create_row" })
 
   # READ
-  get("/companies", { :controller => "companies", :action => "index" })
-  get("/companies/:id_to_display", { :controller => "companies", :action => "show" })
+  get("/companies/:club_id", { :controller => "companies", :action => "index" })
+  get("/companies/:club_id/:id_to_display", { :controller => "companies", :action => "show" })
 
   # UPDATE
   get("/companies/:prefill_with_id/edit", { :controller => "companies", :action => "edit_form" })
@@ -45,7 +47,7 @@ Rails.application.routes.draw do
 
   # CREATE
   get("/comments/new", { :controller => "icomments", :action => "new_form" })
-  post("/create_icomment", { :controller => "icomments", :action => "create_row" })
+  post("/create_icomment/:club_id", { :controller => "icomments", :action => "create_row" })
 
   # READ
   get("/comments", { :controller => "icomments", :action => "index" })
@@ -56,7 +58,7 @@ Rails.application.routes.draw do
   post("/update_comment/:id_to_modify", { :controller => "icomments", :action => "update_row" })
 
   # DELETE
-  get("/delete_comment/:id_to_remove", { :controller => "icomments", :action => "destroy_row" })
+  get("/delete_icomment/:id_to_remove", { :controller => "icomments", :action => "destroy_row" })
 
   #------------------------------
 
@@ -71,8 +73,8 @@ Rails.application.routes.draw do
   get("/cases/:id_to_display", { :controller => "icases", :action => "show" })
 
   # UPDATE
-  get("/cases/:prefill_with_id/edit", { :controller => "icases", :action => "edit_form" })
-  post("/update_icase/:id_to_modify", { :controller => "icases", :action => "update_row" })
+  get("/cases/:club_id/:prefill_with_id/edit", { :controller => "icases", :action => "edit_form" })
+  post("/update_icase/:club_id/:id_to_modify", { :controller => "icases", :action => "update_row" })
 
   # DELETE
   get("/delete_case/:id_to_remove", { :controller => "icases", :action => "destroy_row" })

@@ -26,11 +26,13 @@ class IcasesController < ApplicationController
     @icase.club_id = params.fetch("club_id")
     @icase.approach = params.fetch("approach")
     @icase.element = params.fetch("element")
+    @icase.category = params.fetch("category")
+    @icase.name = params.fetch("name")
 
     if @icase.valid?
       @icase.save
 
-      redirect_to("/icases", :notice => "Icase created successfully.")
+      redirect_to("/cases/#{@icase.club_id}", :notice => "Case created successfully.")
     else
       render("icase_templates/new_form.html.erb")
     end
@@ -56,7 +58,7 @@ class IcasesController < ApplicationController
     if @icase.valid?
       @icase.save
 
-      redirect_to("/icases/#{@icase.id}", :notice => "Icase updated successfully.")
+      redirect_to("/cases/#{params["club_id"]}", :notice => "Icase updated successfully.")
     else
       render("icase_templates/edit_form.html.erb")
     end

@@ -20,6 +20,15 @@
 
     <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
 
+  <!-- Label and input for approach -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+    <input type="text" id="approach" name="name" class="form-control" value="<%= @icase.try(:name) %>"></textarea>
+  </div>
+
+
   <!-- Label and input for question -->
   <div class="form-group">
     <label for="question">
@@ -53,6 +62,22 @@
         <option>Associate</option>
       </select>
   </div>
+  
+  
+  <!-- Label and input for category -->
+  <div class="form-group">
+    <label for="category">
+      Category(type)
+    </label>
+
+    <select id="category" name="category" class="form-control" value="<%= @icase.try(:category) %>">
+        <option>Behavioral</option>
+        <option>Case</option>
+        <option>Coding</option>
+        <option>Other</option>
+      </select>
+  </div>
+  
 
   <!-- Label and input for club_id -->
     <input type="hidden" id="club_id" name="club_id" class="form-control" value="<%= params["club_id"] %>">

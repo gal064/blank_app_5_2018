@@ -18,17 +18,18 @@ class BookmarksController < ApplicationController
   def create_row
     @bookmark = Bookmark.new
 
-    @bookmark.user_id = params.fetch("user_id")
+    @bookmark.user_id = current_user.id
     @bookmark.icase_id = params.fetch("icase_id")
 
     if @bookmark.valid?
       @bookmark.save
 
-      redirect_to("/bookmarks", :notice => "Bookmark created successfully.")
+      redirect_to("/cases/#{params["club_id"]}", :notice => "Bookmark created successfully.")
     else
       render("bookmark_templates/new_form.html.erb")
     end
   end
+  
 
   def edit_form
     @bookmark = Bookmark.find(params.fetch("prefill_with_id"))
@@ -56,6 +57,6 @@ class BookmarksController < ApplicationController
 
     @bookmark.destroy
 
-    redirect_to("/bookmarks", :notice => "Bookmark deleted successfully.")
+    redirect_to("/cases/#{params["club_id"]}", :notice => "Bookmark deleted successfully.")
   end
 end

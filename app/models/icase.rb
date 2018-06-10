@@ -12,13 +12,15 @@
 #  element    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  category   :string
+#  name       :string
 #
 
 class Icase < ApplicationRecord
   
 belongs_to :club
 has_many :bookmarks, :dependent => :destroy
-has_many :commets, :class_name => "Icomment", :dependent => :destroy
+has_many :comments, :class_name => "Icomment", :dependent => :destroy
 belongs_to :company
 belongs_to :user
 
@@ -30,6 +32,8 @@ validates :question, :presence => true
 validates :question, :uniqueness => { :scope => [:company_id] }
 validates :company_id, :presence => true
 validates :club_id, :presence => true
+validates :category, :presence => true
+validates :name, :presence => true
   
   
 end
