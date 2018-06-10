@@ -1,27 +1,19 @@
+
+
 <h1>
-  <img src="<%= @company.logo %>" height="100px">
+  Practice
 </h1>
 
 <hr>
 
+<script async src="//jsfiddle.net/B1KMusic/gbPGb/embed/result/"></script>
 
-<% for icase in Icase.where({:club => params["club_id"], :company => @company.id})%>
+
+<% icase = Icase.where({:club_id => params["club_id"]}).sample%>
 
 
-<div class="jumbotron bg-transparent border pt-3" style="border-color:navy !important">
-  
-  <p>
-    <% if !(icase.bookmarked_user_ids.include?(current_user.id)) %>
-      <a href="/create_bookmark/<%=params["club_id"]%>/<%=icase.id%>"><i class="far fa-star float-right fontawe px-3"></i></a>
-    <%else%>
-     <a href="/delete_bookmark/<%=params["club_id"]%>/<%=Bookmark.where({:user_id => current_user.id, :icase_id => icase.id}).ids[0]%>"><i class="fas fa-star float-right fontawe px-3"></i></a>
-     <%end%>
-     <%if icase.user_id == current_user.id%>
-      <a class="btn btn-primary" href="/cases/<%=params["club_id"]%>/<%=icase.id%>/edit" role="button">Edit</a>
-      <a class="btn btn-primary mx-1" href="/delete_case/<%=params["club_id"]%>/<%=icase.id%>" role="button">Delete</a>
-      <%end%>
-      </br>
-  </p>
+<div class="jumbotron bg-transparent border" style="border-color:navy !important">
+
 
   <div class="m-3">
     <h1 style="font-size:40pt; color:navy"><strong><%=icase.name%></strong> <img class="float-right" src="<%=icase.company.logo%>" height="70px"></h2>  
@@ -109,13 +101,7 @@
 
 </div>
 
-<%end%>
 
 
 
 
-
-
-<a href="/companies/<%=params["club_id"]%>">
-  Go back
-</a>

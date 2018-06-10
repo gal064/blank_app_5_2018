@@ -13,16 +13,17 @@
 <% for icase in Icase.where({:club => params["club_id"]})%>
 
 
-<div class="jumbotron bg-transparent border" style="border-color:navy !important">
+<div class="jumbotron bg-transparent border pt-3" style="border-color:navy !important">
   
   <p>
     <% if !(icase.bookmarked_user_ids.include?(current_user.id)) %>
-      <a href="/create_bookmark/<%=params["club_id"]%>/<%=icase.id%>"><i class="far fa-star float-right fontawe px-3"></i></a>
+      <a href="/create_bookmark/<%=params["club_id"]%>/<%=icase.id%>"><i class="far fa-star fontawe px-3 float-right"></i></a>
     <%else%>
      <a href="/delete_bookmark/<%=params["club_id"]%>/<%=Bookmark.where({:user_id => current_user.id, :icase_id => icase.id}).ids[0]%>"><i class="fas fa-star float-right fontawe px-3"></i></a>
      <%end%>
      <%if icase.user_id == current_user.id%>
-      <a class="btn btn-primary float-right" href="/cases/<%=params["club_id"]%>/<%=icase.id%>/edit" role="button">Edit</a>
+      <a class="btn btn-primary" href="/cases/<%=params["club_id"]%>/<%=icase.id%>/edit" role="button">Edit</a>
+      <a class="btn btn-primary mx-1" href="/delete_case/<%=params["club_id"]%>/<%=icase.id%>" role="button">Delete</a>
       <%end%>
       </br>
   </p>

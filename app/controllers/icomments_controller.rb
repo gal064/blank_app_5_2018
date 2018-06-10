@@ -25,7 +25,8 @@ class IcommentsController < ApplicationController
     if @icomment.valid?
       @icomment.save
 
-      redirect_to("/cases/#{params["club_id"]}", :notice => "Icomment created successfully.")
+      redirect_back(:fallback_location => "/", :notice => "Comment created successfully")
+
     else
       render("icomment_templates/new_form.html.erb")
     end

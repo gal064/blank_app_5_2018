@@ -1,3 +1,5 @@
+<%if params[:club_id] != nil%>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -15,24 +17,24 @@
             Resources
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/bookmarks" class="dropdown-item">
+            <a href="/bookmarks/<%=params["club_id"]%>" class="dropdown-item">
               Bookmarks
             </a>
             <a href="/companies/<%=params["club_id"]%>" class="dropdown-item">
               Companies
             </a>
-            <a href="/icomments" class="dropdown-item">
-              Icomments
-            </a>
             <a href="/cases/<%=params["club_id"]%>" class="dropdown-item">
               Cases
             </a>
-            <a href="/clubs" class="dropdown-item">
-              Clubs
-            </a>
           </div>
         </li>
+        <li>
+          <a href="/<%=params["club_id"]%>/practice" class="nav-link">
+            <strong>Practice</strong>
+          </a>
+        </li>
       </ul>
+
       <ul class="navbar-nav">
         <% if current_user.blank? %>
           <li class="nav-item">
@@ -71,3 +73,4 @@
     </div> <!-- .navbar-collapse -->
   </div> <!-- .container -->
 </nav>
+<%end%>

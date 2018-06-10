@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get("/create_bookmark/:club_id/:icase_id/", { :controller => "bookmarks", :action => "create_row" })
 
   # READ
-  get("/bookmarks", { :controller => "bookmarks", :action => "index" })
+  get("/bookmarks/:club_id", { :controller => "bookmarks", :action => "index" })
   get("/bookmarks/:id_to_display", { :controller => "bookmarks", :action => "show" })
 
   # UPDATE
@@ -77,7 +77,7 @@ Rails.application.routes.draw do
   post("/update_icase/:club_id/:id_to_modify", { :controller => "icases", :action => "update_row" })
 
   # DELETE
-  get("/delete_case/:id_to_remove", { :controller => "icases", :action => "destroy_row" })
+  get("/delete_case/:club_id/:id_to_remove", { :controller => "icases", :action => "destroy_row" })
 
   #------------------------------
 
@@ -97,6 +97,12 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_club/:id_to_remove", { :controller => "clubs", :action => "destroy_row" })
+
+  #------------------------------
+
+  # Routes for practice:
+  get("/:club_id/practice", { :controller=>"icases", :action=>"practice"})
+
 
   #------------------------------
 

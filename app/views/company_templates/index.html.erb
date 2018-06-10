@@ -13,7 +13,7 @@
   <tbody>
     
     <% k = 0 %>
-    <%for company in Company.all%>
+    <%for company in Company.where({:club_id => params["club_id"]})%>
     <%if k%2 == 0%>
     
     <tr>
@@ -23,7 +23,7 @@
     
       <td class="align-middle">
           <a href="/companies/<%=params["club_id"]%>/<%=company.id%>" class="text-center align-middle">
-            <img src="<%=company.logo%>" style="width:100%; padding:50px;">
+            <img src="<%=company.logo%>" style="width:500px; padding:50px;">
           </a>
       </td>
       

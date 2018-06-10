@@ -69,6 +69,11 @@ class IcasesController < ApplicationController
 
     @icase.destroy
 
-    redirect_to("/icases", :notice => "Icase deleted successfully.")
+    redirect_to("/cases/#{params["club_id"]}", :notice => "Icase updated successfully.")
+  end
+  
+  
+  def practice
+    render("icase_templates/practice.html.erb")
   end
 end
