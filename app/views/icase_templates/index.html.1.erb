@@ -1,0 +1,107 @@
+<h1>
+  All icases
+</h1>
+
+
+<a href="/icases/new">
+  Add a new icase
+</a>
+
+<hr>
+
+<table class="table">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      User
+    </th>
+
+    <th>
+      Question
+    </th>
+
+    <th>
+      Company
+    </th>
+
+    <th>
+      Role
+    </th>
+
+    <th>
+      Club
+    </th>
+
+    <th>
+      Approach
+    </th>
+
+    <th>
+      Element
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @icases.each do |icase| %>
+  <tr>
+    <td>
+      <%= icase.id %>
+    </td>
+
+    <td>
+      <%= icase.user_id %>
+    </td>
+
+    <td>
+      <%= icase.question %>
+    </td>
+
+    <td>
+      <%= icase.company_id %>
+    </td>
+
+    <td>
+      <%= icase.role %>
+    </td>
+
+    <td>
+      <%= icase.club_id %>
+    </td>
+
+    <td>
+      <%= icase.approach %>
+    </td>
+
+    <td>
+      <%= icase.element %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(icase.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(icase.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/icases/<%= icase.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -25,6 +25,14 @@
 #
 
 class User < ApplicationRecord
+  
+has_many :icases, :dependent => :destroy
+has_many :commets, :class_name => "Icomment", :dependent => :destroy
+has_many :companies, :dependent => :destroy
+has_many :bookmarks, :dependent => :destroy
+
+has_many :bookmarked_cases, :through => :bookmarks, :source => :icase
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

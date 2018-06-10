@@ -11,4 +11,12 @@
 #
 
 class Icomment < ApplicationRecord
+  
+belongs_to :icase
+belongs_to :user
+
+validates :user_id, :presence => true
+validates :icase_id, :presence => true
+validates :content, :presence => true
+  
 end

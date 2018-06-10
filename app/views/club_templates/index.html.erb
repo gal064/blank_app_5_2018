@@ -1,66 +1,28 @@
-<h1>
-  All clubs
-</h1>
+<h1>Clubs</h1>
 
-<a href="/clubs/new">
-  Add a new club
-</a>
 
-<hr>
+<div class="container">
+  <% k = 0%>
+  <%for club in Club.all%>
+    <%if k%3 == 0 %>
+      <div class="row">
+    <%end%>
+      <div class="col-sm-4 pb-4">
+        <div class="card text-center" style="width: 22rem;">
+            <div class="card-header">
+                <h5 class="card-title text-center"><%=club.name%> Club</h5>
+            </div>
+          <img class="card-img-top" src="<%=club.logo%>" alt="Card image cap" width="460" height="180">
+          <div class="card-body">
+            <a href="cases/<%=club.id%>" class="btn btn-primary text-center">Club Case Book</a>
+          </div>
+        </div>
+      </div>
+    <%if k%3 == 2 %>
+      </div>
+    <%end%>
+    <%k = k + 1 %>
+  <%end%>
+</div>
 
-<table class="table">
-  <tr>
-    <th>
-      ID
-    </th>
 
-    <th>
-      Name
-    </th>
-
-    <th>
-      Logo
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <% @clubs.each do |club| %>
-  <tr>
-    <td>
-      <%= club.id %>
-    </td>
-
-    <td>
-      <%= club.name %>
-    </td>
-
-    <td>
-      <%= club.logo %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(club.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(club.updated_at) %> ago
-    </td>
-
-    <td>
-      <a href="/clubs/<%= club.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>

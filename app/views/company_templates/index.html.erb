@@ -1,82 +1,37 @@
 <h1>
-  All companies
+  Companies
 </h1>
 
 <a href="/companies/new">
   Add a new company
 </a>
 
-<hr>
+<hr style="pb-10">
 
-<table class="table">
-  <tr>
-    <th>
-      ID
-    </th>
 
-    <th>
-      Name
-    </th>
-
-    <th>
-      User
-    </th>
-
-    <th>
-      Logo
-    </th>
-
-    <th>
-      Club
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <% @companies.each do |company| %>
-  <tr>
-    <td>
-      <%= company.id %>
-    </td>
-
-    <td>
-      <%= company.name %>
-    </td>
-
-    <td>
-      <%= company.user_id %>
-    </td>
-
-    <td>
-      <%= company.logo %>
-    </td>
-
-    <td>
-      <%= company.club_id %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(company.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(company.updated_at) %> ago
-    </td>
-
-    <td>
-      <a href="/companies/<%= company.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
+<table style="height: 100px;">
+  <tbody>
+    
+    <% k = 0 %>
+    <%for company in Company.all%>
+    <%if k%2 == 0%>
+    
+    <tr>
+      
+    <%end%>
+    
+    
+      <td class="align-middle">
+          <a href="/companies/<%=company.id%>" class="text-center align-middle">
+            <img src="<%=company.logo%>" style="width:100%; padding:50px;">
+          </a>
+      </td>
+      
+    <%if k%2 == 1%>
+    </tr>
+    <%end%>
+    <%k = k+1%>
+    <%end%>
+  </tbody>
 </table>
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  root 'cases#index'
+  root 'clubs#index'
   
   # Routes for the Bookmark resource:
 
@@ -44,38 +44,38 @@ Rails.application.routes.draw do
   # Routes for the Icomment resource:
 
   # CREATE
-  get("/icomments/new", { :controller => "icomments", :action => "new_form" })
+  get("/comments/new", { :controller => "icomments", :action => "new_form" })
   post("/create_icomment", { :controller => "icomments", :action => "create_row" })
 
   # READ
-  get("/icomments", { :controller => "icomments", :action => "index" })
-  get("/icomments/:id_to_display", { :controller => "icomments", :action => "show" })
+  get("/comments", { :controller => "icomments", :action => "index" })
+  get("/comments/:id_to_display", { :controller => "icomments", :action => "show" })
 
   # UPDATE
-  get("/icomments/:prefill_with_id/edit", { :controller => "icomments", :action => "edit_form" })
-  post("/update_icomment/:id_to_modify", { :controller => "icomments", :action => "update_row" })
+  get("/comments/:prefill_with_id/edit", { :controller => "icomments", :action => "edit_form" })
+  post("/update_comment/:id_to_modify", { :controller => "icomments", :action => "update_row" })
 
   # DELETE
-  get("/delete_icomment/:id_to_remove", { :controller => "icomments", :action => "destroy_row" })
+  get("/delete_comment/:id_to_remove", { :controller => "icomments", :action => "destroy_row" })
 
   #------------------------------
 
   # Routes for the Icase resource:
 
   # CREATE
-  get("/icases/new", { :controller => "icases", :action => "new_form" })
+  get("/cases/new", { :controller => "icases", :action => "new_form" })
   post("/create_icase", { :controller => "icases", :action => "create_row" })
 
   # READ
-  get("/icases", { :controller => "icases", :action => "index" })
-  get("/icases/:id_to_display", { :controller => "icases", :action => "show" })
+  get("/cases/:club_id", { :controller => "icases", :action => "index" })
+  get("/cases/:id_to_display", { :controller => "icases", :action => "show" })
 
   # UPDATE
-  get("/icases/:prefill_with_id/edit", { :controller => "icases", :action => "edit_form" })
+  get("/cases/:prefill_with_id/edit", { :controller => "icases", :action => "edit_form" })
   post("/update_icase/:id_to_modify", { :controller => "icases", :action => "update_row" })
 
   # DELETE
-  get("/delete_icase/:id_to_remove", { :controller => "icases", :action => "destroy_row" })
+  get("/delete_case/:id_to_remove", { :controller => "icases", :action => "destroy_row" })
 
   #------------------------------
 

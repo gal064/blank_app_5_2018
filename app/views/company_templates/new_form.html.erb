@@ -27,11 +27,7 @@
 
   <!-- Label and input for user_id -->
   <div class="form-group">
-    <label for="user_id">
-      User
-    </label>
-
-    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @company.try(:user_id) %>">
+    <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id%>">
   </div>
 
   <!-- Label and input for logo -->
@@ -48,8 +44,11 @@
     <label for="club_id">
       Club
     </label>
+    
+    
+    <%= select_tag("club_id", options_from_collection_for_select(Club.all, :id, :name, @course.try(:club_id)), :class => "form-control") %>
 
-    <input type="text" id="club_id" name="club_id" class="form-control" value="<%= @company.try(:club_id) %>">
+
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

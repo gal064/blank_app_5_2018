@@ -1,6 +1,7 @@
 class IcasesController < ApplicationController
   def index
     @icases = Icase.all
+    @club_id = params["club_id"]
 
     render("icase_templates/index.html.erb")
   end
