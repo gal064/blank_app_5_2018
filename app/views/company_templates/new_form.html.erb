@@ -46,7 +46,7 @@
     </label>
     
     
-    <%= select_tag("club_id", options_from_collection_for_select(Club.all, :id, :name, @course.try(:club_id)), :class => "form-control") %>
+    <%= select_tag("club_id", options_from_collection_for_select(Club.all, :id, :name, @club.try(:club_id)), :class => "form-control") %>
 
 
   </div>

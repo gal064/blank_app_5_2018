@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   # Routes for the Icase resource:
 
   # CREATE
-  get("/cases/new", { :controller => "icases", :action => "new_form" })
+  get("/cases/new/:club_id", { :controller => "icases", :action => "new_form" })
   post("/create_icase", { :controller => "icases", :action => "create_row" })
 
   # READ
