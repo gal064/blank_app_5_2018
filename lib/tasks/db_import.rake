@@ -43,5 +43,14 @@ namespace :db_import do
       Icomment.create!(record)
     end
   end
+  
+  desc "TODO"
+  task users_import: :environment do
+    path = File.join(Rails.root, 'db_backup', 'users.json')
+    users = JSON.parse(File.read(path))
+    users.each do |record|
+      User.create!(record)
+    end
+  end
 
 end

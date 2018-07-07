@@ -81,5 +81,22 @@ namespace :db_export do
       f.write(JSON.pretty_generate(icomments))
     end
   end
-end
 
+
+  desc "TODO"
+  task users_export: :environment do
+    
+    # get a file ready, the 'data' directory has already been added in Rails.root
+    filepath = File.join(Rails.root, 'db_backup', 'users.json')
+    puts "- exporting clubs into #{filepath}"
+
+    # the key here is to use 'as_json', otherwise you get an ActiveRecord_Relation object, which extends
+    # array, and works like in an array, but not for exporting
+    users = User.all.as_json
+
+    # The pretty is nice so I can diff exports easily, if that's not important, JSON(users) will do
+    File.open(filepath, 'w') do |f|
+      f.write(JSON.pretty_generate(users))
+    end
+  end
+end
