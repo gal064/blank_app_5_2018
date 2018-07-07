@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Cisco",
+    "user_id": 1,
+    "logo": "https://jamiewoodio.gallerycdn.vsassets.io/extensions/jamiewoodio/cisco/1.0.0/1493935136846/Microsoft.VisualStudio.Services.Icons.Default",
+    "club_id": 1,
+    "created_at": "2018-06-09 23:42:44 UTC",
+    "updated_at": "2018-06-09 23:42:44 UTC"
+  },
+  {
+    "id": 2,
+    "name": "Google",
+    "user_id": 1,
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEY7xYdSxdH8WRShuP4NL1wCEyG9C55FuaB6qElKBY2uvJhBTi",
+    "club_id": 1,
+    "created_at": "2018-06-09 23:43:18 UTC",
+    "updated_at": "2018-06-10 00:32:31 UTC"
+  },
+  {
+    "id": 3,
+    "name": "Adobe",
+    "user_id": 1,
+    "logo": "https://www.nau.edu/uploadedImages/Administrative/ITS/CTSS/Desktop_Support_(Central)/~Topic_Pages/Images/logo(1).png",
+    "club_id": 1,
+    "created_at": "2018-06-09 23:43:42 UTC",
+    "updated_at": "2018-06-09 23:43:42 UTC"
+  },
+  {
+    "id": 4,
+    "name": "BCG",
+    "user_id": 1,
+    "logo": "http://fmaa.com.au/wp-content/uploads/2015/08/BCG.png",
+    "club_id": 3,
+    "created_at": "2018-06-10 00:37:02 UTC",
+    "updated_at": "2018-06-10 00:42:55 UTC"
+  },
+  {
+    "id": 5,
+    "name": " Bain",
+    "user_id": 1,
+    "logo": "data:image/png;base64,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",
+    "club_id": 3,
+    "created_at": "2018-06-10 00:37:23 UTC",
+    "updated_at": "2018-06-10 06:59:24 UTC"
+  },
+  {
+    "id": 6,
+    "name": "McKinsey",
+    "user_id": 1,
+    "logo": "https://www.mckinsey.com/~/media/McKinsey/About%20Us/Media%20Center/logo_blue_cmyk.ashx",
+    "club_id": 3,
+    "created_at": "2018-06-10 00:37:55 UTC",
+    "updated_at": "2018-06-10 00:37:55 UTC"
+  },
+  {
+    "id": 7,
+    "name": "Deloitte",
+    "user_id": 1,
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Deloitte.svg/2000px-Deloitte.svg.png",
+    "club_id": 3,
+    "created_at": "2018-06-10 07:24:20 UTC",
+    "updated_at": "2018-06-10 07:24:20 UTC"
+  }
+]

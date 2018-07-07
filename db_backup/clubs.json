@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Tech",
+    "logo": "https://image.ibb.co/iK5Mso/download.png",
+    "created_at": "2018-06-09 21:16:08 UTC",
+    "updated_at": "2018-06-09 21:45:33 UTC"
+  },
+  {
+    "id": 2,
+    "name": "Finance",
+    "logo": "https://image.ibb.co/eC2nyT/NI_Kellogg_grad_color_print.jpg",
+    "created_at": "2018-06-09 21:16:38 UTC",
+    "updated_at": "2018-06-09 21:46:05 UTC"
+  },
+  {
+    "id": 3,
+    "name": "Consulting",
+    "logo": "https://image.ibb.co/c1YcyT/Screen_Shot_2018_06_09_at_12_22_26_PM.png",
+    "created_at": "2018-06-09 21:17:04 UTC",
+    "updated_at": "2018-06-09 21:46:42 UTC"
+  }
+]

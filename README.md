@@ -1,5 +1,16 @@
-# Final Project
+See final project at
+http://casebook-production.herokuapp.com/
 
-This is a blank Rails application to use as a starting point for your project.
+to export db run:
+rake db_export:bookmarks_export
+rake db_export:clubs_export
+rake db_export:companies_export
+rake db_export:icases_export
+rake db_export:icomments_export
 
-Fork it to your own account, set up a Cloud9 workspace as usual, `bin/setup`, Run Project, and code away!
+to import db run (already exported in master):
+rake db_import:bookmarks_import
+rake db_import:clubs_import
+rake db_import:companies_import
+rake db_import:icases_import
+rake db_import:icomments_import
